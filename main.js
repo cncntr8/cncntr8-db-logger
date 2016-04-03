@@ -40,12 +40,13 @@ inquirer.prompt([{
       metrics.insert(doc).success(function(metric) {
         //console.log(metric);
 
-        /*dataQueue[doc.user.username][doc.type].push(doc.value);
+        dataQueue[doc.user.username][doc.type].push(doc.value);
 
         if (dataQueue[doc.user.username][doc.type].length >= meanWindow * 10) {
           var meanDoc = doc;
           meanDoc.value = math.mean(dataQueue[doc.user.username][doc.type]);
           meanDoc.type = doc.type + '-mean';
+          meanDoc._id = metrics.id();
 
           metrics.insert(meanDoc).success(function(metric) {
             //console.log(metric);
@@ -54,7 +55,7 @@ inquirer.prompt([{
           });
 
           dataQueue[doc.user.username][doc.type] = [];
-        }*/
+        }
       }).error(function(err) {
         throw err;
       });
